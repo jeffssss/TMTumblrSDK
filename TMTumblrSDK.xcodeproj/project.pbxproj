@@ -10,21 +10,22 @@
 		2D64109C1BCFFC3900599831 /* Spectacles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D64109B1BCFFC3900599831 /* Spectacles.framework */; };
 		2D64109E1BD0064600599831 /* TMTumblrSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 315FEF021BCF4B4C0064B3AA /* TMTumblrSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		315FEF241BCF4BD50064B3AA /* TMTumblrActivity.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A3902016FCE5C80045183F /* TMTumblrActivity.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		315FEF251BCF4BD50064B3AA /* TMTumblrActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A3902116FCE5C80045183F /* TMTumblrActivity.m */; settings = {ASSET_TAGS = (); }; };
+		315FEF251BCF4BD50064B3AA /* TMTumblrActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A3902116FCE5C80045183F /* TMTumblrActivity.m */; };
 		315FEF261BCF4BDC0064B3AA /* TMAPIClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 9330592C16F9281500868C9C /* TMAPIClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		315FEF271BCF4BDC0064B3AA /* TMAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9330592D16F9281500868C9C /* TMAPIClient.m */; settings = {ASSET_TAGS = (); }; };
+		315FEF271BCF4BDC0064B3AA /* TMAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9330592D16F9281500868C9C /* TMAPIClient.m */; };
 		315FEF281BCF4BE20064B3AA /* TMTumblrAppClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 93F8E38416F921BE004CA7D5 /* TMTumblrAppClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		315FEF291BCF4BE20064B3AA /* TMTumblrAppClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F8E38516F921BE004CA7D5 /* TMTumblrAppClient.m */; settings = {ASSET_TAGS = (); }; };
+		315FEF291BCF4BE20064B3AA /* TMTumblrAppClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F8E38516F921BE004CA7D5 /* TMTumblrAppClient.m */; };
 		315FEF2A1BCF4BE90064B3AA /* TMOAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = 93F8E38C16F921C6004CA7D5 /* TMOAuth.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		315FEF2B1BCF4BE90064B3AA /* TMOAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F8E38D16F921C6004CA7D5 /* TMOAuth.m */; settings = {ASSET_TAGS = (); }; };
+		315FEF2B1BCF4BE90064B3AA /* TMOAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F8E38D16F921C6004CA7D5 /* TMOAuth.m */; };
 		315FEF2C1BCF4BE90064B3AA /* TMTumblrAuthenticator.h in Headers */ = {isa = PBXBuildFile; fileRef = 93F8E38E16F921C6004CA7D5 /* TMTumblrAuthenticator.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		315FEF2D1BCF4BE90064B3AA /* TMTumblrAuthenticator.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F8E38F16F921C6004CA7D5 /* TMTumblrAuthenticator.m */; settings = {ASSET_TAGS = (); }; };
+		315FEF2D1BCF4BE90064B3AA /* TMTumblrAuthenticator.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F8E38F16F921C6004CA7D5 /* TMTumblrAuthenticator.m */; };
 		315FEF2E1BCF4BF00064B3AA /* TMSDKFunctions.h in Headers */ = {isa = PBXBuildFile; fileRef = 93BAE94E1709328B00E7E490 /* TMSDKFunctions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		315FEF2F1BCF4BF00064B3AA /* TMSDKFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BAE94F1709328B00E7E490 /* TMSDKFunctions.m */; settings = {ASSET_TAGS = (); }; };
+		315FEF2F1BCF4BF00064B3AA /* TMSDKFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BAE94F1709328B00E7E490 /* TMSDKFunctions.m */; };
 		315FEF301BCF4BF00064B3AA /* TMSDKUserAgent.h in Headers */ = {isa = PBXBuildFile; fileRef = 93B345BF1A4218CF00E39E3B /* TMSDKUserAgent.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		315FEF311BCF4BF00064B3AA /* TMSDKUserAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B345C01A4218CF00E39E3B /* TMSDKUserAgent.m */; settings = {ASSET_TAGS = (); }; };
+		315FEF311BCF4BF00064B3AA /* TMSDKUserAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B345C01A4218CF00E39E3B /* TMSDKUserAgent.m */; };
 		315FEF331BCF51270064B3AA /* JXHTTP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 315FEF321BCF51270064B3AA /* JXHTTP.framework */; };
 		93A015C91B0696EF0047F8C4 /* TMSDKFunctionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A015C81B0696EF0047F8C4 /* TMSDKFunctionsTest.m */; };
+		F43DDED332B91F5D5EA85B25 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4027A38887244210991EA792 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 			files = (
 				2D64109C1BCFFC3900599831 /* Spectacles.framework in Frameworks */,
 				315FEF331BCF51270064B3AA /* JXHTTP.framework in Frameworks */,
+				F43DDED332B91F5D5EA85B25 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,10 +251,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 315FEF211BCF4B6E0064B3AA /* Build configuration list for PBXNativeTarget "TMTumblrSDK" */;
 			buildPhases = (
+				B54CB9700F7D6CBEFE76D8ED /* Check Pods Manifest.lock */,
 				315FEF171BCF4B6E0064B3AA /* Sources */,
 				315FEF181BCF4B6E0064B3AA /* Frameworks */,
 				315FEF191BCF4B6E0064B3AA /* Headers */,
 				315FEF1A1BCF4B6E0064B3AA /* Resources */,
+				B2AF1646B9159DBCCDD470D8 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -292,6 +296,7 @@
 				TargetAttributes = {
 					315FEF1B1BCF4B6E0064B3AA = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = KR3M32V26V;
 					};
 					93A015BA1B0696E20047F8C4 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -333,6 +338,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B2AF1646B9159DBCCDD470D8 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B54CB9700F7D6CBEFE76D8ED /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		315FEF171BCF4B6E0064B3AA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -361,6 +399,7 @@
 /* Begin XCBuildConfiguration section */
 		315FEF221BCF4B6E0064B3AA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BDD19E73B3BF8B7C6E532A05 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -371,6 +410,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -395,7 +435,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sozorogami.TMTumblrSDK;
+				PRODUCT_BUNDLE_IDENTIFIER = jf.TMTumblrSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -406,6 +446,7 @@
 		};
 		315FEF231BCF4B6E0064B3AA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F20180682E41431BF494938D /* Pods.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -416,6 +457,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
@@ -441,7 +483,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sozorogami.TMTumblrSDK;
+				PRODUCT_BUNDLE_IDENTIFIER = jf.TMTumblrSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";

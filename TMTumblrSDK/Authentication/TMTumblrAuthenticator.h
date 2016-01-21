@@ -23,7 +23,7 @@ typedef void (^TMAuthenticationCallback)(NSString *, NSString *, NSError *);
 
 + (TMTumblrAuthenticator *)sharedInstance;
 
-#ifdef __ENVIRONMENT_MAC_OS_X_VERSION_MIN_REQUIRED__
+//#ifdef __ENVIRONMENT_MAC_OS_X_VERSION_MIN_REQUIRED__
 
 /**
  Authenticate via three-legged OAuth.
@@ -36,6 +36,18 @@ typedef void (^TMAuthenticationCallback)(NSString *, NSString *, NSError *);
 - (void)authenticate:(NSString *)URLScheme callback:(TMAuthenticationCallback)callback;
 
 /**
+ Authenticate via three-legged OAuth with a given UIWebView.
+ 
+ Your `TMTumblrAuthenticator` instance's `handleOpenURL:` method must also be called from your `UIApplicationDelegate`'s
+ `application:openURL:sourceApplication:annotation:` method in order to receive the tokens.
+ 
+ @param URLScheme a URL scheme that your application can handle requests to.
+ 
+ @param webView a UIWebView to open the authentication site in.
+ */
+- (void)authenticate:(NSString *)URLScheme webView:(UIWebView *)webView callback:(TMAuthenticationCallback)callback;
+
+/**
  Authenticate via three-legged OAuth. This should be called from your `UIApplicationDelegate`'s
  `application:openURL:sourceApplication:annotation:` method in order to receive the tokens.
  
@@ -43,7 +55,7 @@ typedef void (^TMAuthenticationCallback)(NSString *, NSString *, NSError *);
  */
 - (BOOL)handleOpenURL:(NSURL *)url;
 
-#endif
+//#endif
 
 /**
  Authenticate via xAuth.

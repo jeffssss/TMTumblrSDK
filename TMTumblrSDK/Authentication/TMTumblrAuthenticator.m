@@ -12,17 +12,14 @@
 #import "TMSDKFunctions.h"
 #import "TMSDKUserAgent.h"
 
-#if __IPHONE_OS_VERSION_MIN_REQUIRED
 #import <UIKit/UIKit.h>
-#else
-#import <AppKit/AppKit.h>
-#endif
 
 typedef void (^NSURLConnectionCompletionHandler)(NSURLResponse *, NSData *, NSError *);
 
 @interface TMTumblrAuthenticator()
 
 @property (nonatomic, copy) TMAuthenticationCallback threeLeggedOAuthCallback;
+@property (nonatomic, copy) NSString *threeLeggedOAuthToken;
 @property (nonatomic, copy) NSString *threeLeggedOAuthTokenSecret;
 
 NSMutableURLRequest *mutableRequestWithURLString(NSString *URLString);
@@ -42,7 +39,7 @@ NSDictionary *formEncodedDataToDictionary(NSData *data);
     return instance;
 }
 
-#ifdef __ENVIRONMENT_MAC_OS_X_VERSION_MIN_REQUIRED__
+//#ifdef __ENVIRONMENT_MAC_OS_X_VERSION_MIN_REQUIRED__
 
 - (void)authenticate:(NSString *)URLScheme callback:(TMAuthenticationCallback)callback {
     // Clear token secret in case authentication was previously started but not finished
@@ -76,7 +73,7 @@ NSDictionary *formEncodedDataToDictionary(NSData *data);
                               [NSString stringWithFormat:@"https://www.tumblr.com/oauth/authorize?oauth_token=%@",
                                responseParameters[@"oauth_token"]]];
             
-            [[NSWorkspace sharedWorkspace] openURL:authURL];
+           [[UIApplication sharedApplication] openURL:authURL];
             
         } else {
             if (callback) {
@@ -88,6 +85,49 @@ NSDictionary *formEncodedDataToDictionary(NSData *data);
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:handler];
 }
 
+- (void)authenticate:(NSString *)URLScheme webView:(UIWebView *)webView callback:(TMAuthenticationCallback)callback {
+    // Clear token secret in case authentication was previously started but not finished
+    self.threeLeggedOAuthTokenSecret = nil;
+    
+    NSString *tokenRequestURLString = [NSString stringWithFormat:@"https://www.tumblr.com/oauth/request_token?oauth_callback=%@",
+                                       TMURLEncode([NSString stringWithFormat:@"%@://tumblr-authorize", URLScheme])];
+    
+    NSMutableURLRequest *request = mutableRequestWithURLString(tokenRequestURLString);
+//    [self signRequest:request withParameters:nil];
+    [[self class] signRequest:request withParameters:nil consumerKey:self.OAuthConsumerKey consumerSecret:self.OAuthConsumerSecret token:self.threeLeggedOAuthToken tokenSecret:self.threeLeggedOAuthTokenSecret];
+    
+    NSURLConnectionCompletionHandler handler = ^(NSURLResponse *response, NSData *data, NSError *error) {
+        if (error) {
+            if (callback)
+                callback(nil, nil, error);
+            
+            return;
+        }
+        
+        int statusCode = ((NSHTTPURLResponse *)response).statusCode;
+        
+        if (statusCode == 200) {
+            self.threeLeggedOAuthCallback = callback;
+            
+            NSDictionary *responseParameters = formEncodedDataToDictionary(data);
+            self.threeLeggedOAuthTokenSecret = responseParameters[@"oauth_token_secret"];
+            
+            NSURL *authURL = [NSURL URLWithString:
+                              [NSString stringWithFormat:@"https://www.tumblr.com/oauth/authorize?oauth_token=%@",
+                               responseParameters[@"oauth_token"]]];
+            
+            [webView loadRequest:[NSURLRequest requestWithURL:authURL]];
+            
+        } else {
+            if (callback)
+                callback(nil, nil, errorWithStatusCode(statusCode));
+        }
+    };
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:handler];
+}
+
+
 - (BOOL)handleOpenURL:(NSURL *)url {
     if (![url.host isEqualToString:@"tumblr-authorize"]) {
         return NO;
@@ -96,6 +136,7 @@ NSDictionary *formEncodedDataToDictionary(NSData *data);
     void(^clearState)() = ^ {
         self.threeLeggedOAuthTokenSecret = nil;
         self.threeLeggedOAuthCallback = nil;
+        self.threeLeggedOAuthToken = nil;
     };
     
     NSDictionary *URLParameters = TMQueryStringToDictionary(url.query);
@@ -110,7 +151,7 @@ NSDictionary *formEncodedDataToDictionary(NSData *data);
         return NO;
     }
     
-    NSString *OAuthToken = URLParameters[@"oauth_token"];
+    self.threeLeggedOAuthToken = URLParameters[@"oauth_token"];
     
     NSDictionary *requestParameters = @{ @"oauth_verifier" : URLParameters[@"oauth_verifier"] };
     
@@ -119,7 +160,7 @@ NSDictionary *formEncodedDataToDictionary(NSData *data);
     request.HTTPBody = [TMDictionaryToQueryString(requestParameters) dataUsingEncoding:NSUTF8StringEncoding];
     
     [[self class] signRequest:request withParameters:requestParameters consumerKey:self.OAuthConsumerKey
-               consumerSecret:self.OAuthConsumerSecret token:OAuthToken tokenSecret:self.threeLeggedOAuthTokenSecret];
+               consumerSecret:self.OAuthConsumerSecret token:self.threeLeggedOAuthToken tokenSecret:self.threeLeggedOAuthTokenSecret];
     
     NSURLConnectionCompletionHandler handler = ^(NSURLResponse *response, NSData *data, NSError *error) {
         if (error) {
@@ -149,7 +190,7 @@ NSDictionary *formEncodedDataToDictionary(NSData *data);
     return YES;
 }
 
-#endif
+//#endif
 
 - (void)xAuth:(NSString *)emailAddress password:(NSString *)password callback:(TMAuthenticationCallback)callback {
     NSDictionary *requestParameters = @{
@@ -179,9 +220,10 @@ NSDictionary *formEncodedDataToDictionary(NSData *data);
         
         if (statusCode == 200) {
             NSDictionary *responseParameters = formEncodedDataToDictionary(data);
-
+            self.threeLeggedOAuthToken = responseParameters[@"oauth_token"];
+            self.threeLeggedOAuthTokenSecret = responseParameters[@"oauth_token_secret"];
             if (callback) {
-                callback(responseParameters[@"oauth_token"], responseParameters[@"oauth_token_secret"], nil);
+                callback(self.threeLeggedOAuthToken, self.threeLeggedOAuthTokenSecret, nil);
             }
             
         } else {

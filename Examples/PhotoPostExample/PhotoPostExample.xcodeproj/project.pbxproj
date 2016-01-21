@@ -135,6 +135,7 @@
 				9379E30417496C4200998F0C /* Frameworks */,
 				9379E30517496C4200998F0C /* Resources */,
 				F1BC47DF41B74E268B400A1C /* Copy Pods Resources */,
+				E0C778AA63112AC623B05C61 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -154,6 +155,11 @@
 				CLASSPREFIX = TM;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Bryan Irace";
+				TargetAttributes = {
+					9379E30617496C4200998F0C = {
+						DevelopmentTeam = KR3M32V26V;
+					};
+				};
 			};
 			buildConfigurationList = 9379E30217496C4200998F0C /* Build configuration list for PBXProject "PhotoPostExample" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -201,6 +207,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sanbox is not in sync with the Podfile.lock. Run 'pod install'.\nEOM\n    exit 1\nfi\n";
+		};
+		E0C778AA63112AC623B05C61 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		F1BC47DF41B74E268B400A1C /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -303,9 +324,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 618DF6CDE4B7B60312CF0D9D /* Pods.debug.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PhotoPostExample/PhotoPostExample-Prefix.pch";
 				INFOPLIST_FILE = "PhotoPostExample/PhotoPostExample-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = jf.PhotoPostExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -315,9 +338,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2E49474A41D2A02B1E127BFD /* Pods.release.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PhotoPostExample/PhotoPostExample-Prefix.pch";
 				INFOPLIST_FILE = "PhotoPostExample/PhotoPostExample-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = jf.PhotoPostExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

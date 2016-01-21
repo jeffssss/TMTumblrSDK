@@ -134,6 +134,7 @@
 				9330593D16F92D6B00868C9C /* Frameworks */,
 				9330593E16F92D6B00868C9C /* Resources */,
 				C05FF4C5F704428AA6529B95 /* Copy Pods Resources */,
+				7B23FBA4228F683D219925DB /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -153,6 +154,11 @@
 				CLASSPREFIX = TM;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Bryan Irace";
+				TargetAttributes = {
+					9330593F16F92D6B00868C9C = {
+						DevelopmentTeam = KR3M32V26V;
+					};
+				};
 			};
 			buildConfigurationList = 9330593B16F92D6B00868C9C /* Build configuration list for PBXProject "AppClientExample" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -187,6 +193,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		7B23FBA4228F683D219925DB /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C05FF4C5F704428AA6529B95 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -288,9 +309,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 86EFED2E98293EED7501CFB5 /* Pods.debug.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AppClientExample/AppClientExample-Prefix.pch";
 				INFOPLIST_FILE = "AppClientExample/AppClientExample-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = jf.AppClientExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -300,9 +323,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F7D2F48E989E7862098B14AB /* Pods.release.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AppClientExample/AppClientExample-Prefix.pch";
 				INFOPLIST_FILE = "AppClientExample/AppClientExample-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = jf.AppClientExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
